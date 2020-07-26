@@ -53,7 +53,7 @@ This work style isn't for everyone, and that's ok!
  - An open back and forth with any questions or concerns you have
  
  ## Success looks like the following:
- - Build two (2) API endpoints. You can build these on whatever compute you choose with any supported language, Lambda, Fargate, EC2. You choose! (for reference we like Go with Lambda)
+ - Build two (2) API endpoints using Lambda functions written in Go.
     - Endpoint 1: PUT updateUser, with the following custom attributes.
         - Hogwarts house in camelCase (hogwartsHouse), a string / enum value with options of (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)
         - Updated at in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) Datetime camelCase (updatedAt), a string date format. (for reference we like 2020-04-14T13:13:13+00:00)
@@ -65,7 +65,7 @@ This work style isn't for everyone, and that's ok!
 - Run E2E tests in Go (regardless of what language you ran you'll need to install Go for this)
 - Upload your code to a github repo and ping us with instructions on how to generate the auth header.
 
-### Bonus:
+### ⭐️ Bonus ⭐️:
  - Add in an auth system with a Cognito user pool provisioned with Terraform:
     - Set the Environment variable AUTH_HEADER to your authorization header ("basic BASE64USERPASS==" or "bearer JWTOKEN")
     - Uncomment the bonus tests in `main_test.go` and run your E2E tests
