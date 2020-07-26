@@ -53,21 +53,22 @@ This work style isn't for everyone, and that's ok!
  - An open back and forth with any questions or concerns you have
  
  ## Success looks like the following:
- - Build two (2) API endpoints. You can build these on whatever compute you choose with any supported language, lambda, fargate, EC2. You choose! (for reference we like Go with Lambda)
+ - Build two (2) API endpoints. You can build these on whatever compute you choose with any supported language, Lambda, Fargate, EC2. You choose! (for reference we like Go with Lambda)
     - Endpoint 1: PUT updateUser, with the following custom attributes.
         - Hogwarts house in camelCase (hogwartsHouse), a string / enum value with options of (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)
         - Updated at in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) Datetime camelCase (updatedAt), a string date format. (for reference we like 2020-04-14T13:13:13+00:00)
-        - Where you store these attributes is up to you: SQL database for user metadata, redis, inside the auth system if supported. All acceptable choices, just be prepared to answer the 'why?'
+        - Store these attributes in DynamoDB
    - Endpoint 2: GET getUser and will return email, hogwartsHouse, and lastUpdated
 - Both of these need to live at https://YOURURL/api/v1/users and should return a status code of 200 along with the 3 attributes
 - All (or most!) of the infrastructure you provision should be deployed with Terraform. This is a hard requirement.
 - Set Environment variable CHALLENGE_URL to YOURURL
-- Set the Environment variable AUTH_HEADER to your authorization header ("basic BASE64USERPASS==" or "bearer JWTOKEN")
 - Run E2E tests in Go (regardless of what language you ran you'll need to install Go for this)
 - Upload your code to a github repo and ping us with instructions on how to generate the auth header.
 
 ### Bonus:
- - You'll need an auth system, you get to choose here. You can go with a SAAS offering (Cognito, Auth0, Okta) or build your own. Must support Token or Basic Auth.
+ - Add in an auth system with a Cognito user pool provisioned with Terraform:
+    - Set the Environment variable AUTH_HEADER to your authorization header ("basic BASE64USERPASS==" or "bearer JWTOKEN")
+    - Uncomment the bonus tests in `main_test.go` and run your E2E tests
  
 ## Hard Rules:
 - Using 3rd party libraries, google, stackoverflow, emailing questions to us for help; all perfectly acceptable and encouraged.
