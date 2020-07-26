@@ -17,7 +17,6 @@ type User struct {
 }
 
 var userURL string
-var authHeader string
 
 func TestUpdate(t *testing.T) {
 	u := os.Getenv("CHALLENGE_URL")
@@ -44,7 +43,6 @@ func TestUpdate(t *testing.T) {
 		t.Error(err)
 	}
 
-	req.Header.Set("Authorization", authHeader)
 	req.Header.Set("Content-Type", "application/json")
 
 	res, err := httpClient.Do(req)
@@ -89,7 +87,6 @@ func TestGet(t *testing.T) {
 		t.Error(err)
 	}
 
-	req.Header.Set("Authorization", authHeader)
 	req.Header.Set("Content-Type", "application/json")
 
 	res, err := httpClient.Do(req)
