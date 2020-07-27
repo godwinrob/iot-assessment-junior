@@ -60,19 +60,20 @@ This work style isn't for everyone, and that's ok!
         - Store these attributes in DynamoDB
    - Endpoint 2: GET getUser and will return email, hogwartsHouse, and lastUpdated
 - Both of these need to live at https://YOURURL/api/v1/users and should return a status code of 200 along with the 3 attributes
-- All (or most!) of the infrastructure you provision should be deployed with Terraform (we've included the `infrastructure` directory with a `main.tf` file to get you started. 
+- All (or most!) of the infrastructure you provision should be deployed with Terraform (we've included the `infrastructure` directory with a `main.tf` file to get you started). 
 - Set Environment variable CHALLENGE_URL to YOURURL
-- Run E2E tests in Go (regardless of what language you ran you'll need to install Go for this)
+- Run the E2E tests in the `tests` directory (run `make e2e`) and make sure they pass
 - Upload your code to a github repo and send us the link!
 
 ### ⭐️ Bonus ⭐️:
- - Add in an auth system with a Cognito user pool provisioned with Terraform:
-    - Set the Environment variable AUTH_HEADER to your authorization header ("basic BASE64USERPASS==" or "bearer JWTOKEN")
-    - Uncomment the bonus tests in `main_test.go` and run your E2E tests
+ - Think about how you would go about adding an auth system to the functions you wrote:
+    - What tools would you use?
+    - How would you build it in?
+    - Why is adding an auth system important for a production level application?
  
 ## Hard Rules:
 - Using 3rd party libraries, google, stackoverflow, emailing questions to us for help; all perfectly acceptable and encouraged.
 However you must write the code, copying gists is fine but someone else writing the code for you breaks our 'honesty' value. This needs to be your work. (Don't ask your friend to write it for you, and if you find a fork of this on the web, don't copy from it.)
 - Infrastructure has to be provisioned with mostly terraform, only acceptable reasons why not will be that a terraform provider wasn't available.
-- You can't change any existing code in the repo. Updating the tests to accept a 500 status code is clever... but not what we are looking for.
+- You can't change any existing code in the repo. Updating the tests to accept a 500 status code is clever... but not what we are looking for. If you think there might be an error in one of the tests, reach out and let us know!
    
